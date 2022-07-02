@@ -1,0 +1,42 @@
+.switch-input {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.switch-bg {
+    display: block;
+    width: 65px;
+    height: 35px;
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    border-radius: 42px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.switch-bg:hover {
+    opacity: 0.7;
+}
+
+.switch-bg::after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: hsl(240, 78%, 98%);
+    position: absolute;
+    border-radius: 50%;
+    left: 5px;
+    bottom: 5px;
+    transition: 0.5s;
+}
+
+.switch-input:checked + .switch-bg::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+.switch-bg:active::after {
+    width: 25px;
+}
